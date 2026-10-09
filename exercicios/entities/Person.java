@@ -1,28 +1,41 @@
+
 package exercicios.entities;
 
+/**
+ * Person
+ */
 public class Person {
 
-    public String nome;
-    public double preco;
-    public int quantidade;
+    private String nome;
+    private int idade;
+    private String email;
 
-    public Person(String nome, double preco, int quantidade) {
+    public Person(String nome, int idade, String email) {
 
         this.nome = nome;
-        this.preco = preco;
-        this.quantidade = quantidade;
-
+        this.idade = idade;
+        this.nome = email;
     }
-    public Person(String nome, double preco) {
 
-        this.nome = nome;
-        this.preco = preco;
-
+    public String getNome() {
+        return nome;
     }
-    public Person(String nome) {
 
+    public int getIdade() {
+        return idade;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setNome(String nome){
         this.nome = nome;
-        
-
+    }
+    public void setIdade(int idade){
+        this.idade = idade;
+    }
+    public void setEmail(String nome){
+        this.email = email;
     }
 }
