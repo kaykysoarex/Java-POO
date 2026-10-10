@@ -1,38 +1,43 @@
 package exercicios.application;
 
+import java.util.Locale;
 import java.util.Scanner;
-import exercicios.entities.Person;
 
+import exercicios.entities.Product;
+
+/**
+ * Main
+ */
 public class Main {
 
     public static void main(String[] args) {
-
+        Locale.setDefault(Locale.US);
         Scanner sc = new Scanner(System.in);
 
-        System.out.print("Digite seu nome: ");
+        System.out.println("Digite o nome do produto: ");
         String nome = sc.nextLine();
 
-        System.out.print("Digite sua idade: ");
-        int idade = sc.nextInt();
-        sc.nextLine();
+        System.out.println("Digite o valor do produto: ");
+        double preco = sc.nextDouble();
 
-        System.out.print("Digite seu e-mail: ");
-        String email = sc.nextLine();
+        System.out.println("Digite a quantidade em estoque: ");
+        int quantidade = sc.nextInt();
 
-        Person person = new Person(nome, idade, email);
+        Product product = new Product(nome, preco, quantidade);
 
-        System.out.println("\n--- Dados cadastrados ---");
-        System.out.println(person);
+        System.out.println(product.toString());
 
-        System.out.println("\n" + person.introduzir());
+        System.out.println("Quantas unidades gostaria de adicionar?");
+        int adcQuanti = sc.nextInt();
 
-        System.out.print("\nDigite a nova idade: ");
-        int novaIdade = sc.nextInt();
+        product.adcProdutos(adcQuanti);
+        System.out.println(product.toString());
 
-        person.setIdade(novaIdade);
+        System.out.println("Quantas unidades gostaria de remover?");
+        int rmvQuanti = sc.nextInt();
 
-        System.out.println("\n--- Dados atualizados ---");
-        System.out.println(person);
+        product.rmvProdutos(rmvQuanti);
+        System.out.println(product.toString());
 
         sc.close();
     }
