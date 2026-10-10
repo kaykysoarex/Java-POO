@@ -25,19 +25,29 @@ public class Main {
 
         Product product = new Product(nome, preco, quantidade);
 
-        System.out.println(product.toString());
+        product.setNome(nome);
+
+        System.out.println(product);
 
         System.out.println("Quantas unidades gostaria de adicionar?");
         int adcQuanti = sc.nextInt();
 
+        while (adcQuanti <= 0) {
+            System.out.println("Digite um valor positivo!");
+            adcQuanti = sc.nextInt();
+        }
         product.adcProdutos(adcQuanti);
-        System.out.println(product.toString());
+        
+
+        System.out.println(product);
 
         System.out.println("Quantas unidades gostaria de remover?");
         int rmvQuanti = sc.nextInt();
 
+        product.rmvProdutos(quantidade);
+
         product.rmvProdutos(rmvQuanti);
-        System.out.println(product.toString());
+        System.out.println(product);
 
         sc.close();
     }
